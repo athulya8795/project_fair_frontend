@@ -6,9 +6,6 @@ import Profile from '../components/Profile'
 
 function Dashboard() {
   // const [userName, setUserName] = useState("")
-
-  
-  
     const user = JSON.parse( sessionStorage.getItem("existingUser"))
     console.log(user.username);
  
