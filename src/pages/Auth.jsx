@@ -17,7 +17,6 @@ function Auth({ register }) {
     email: "",
     password: ""
   })
-  // console.log(userDetails);
 
   const handleRegister = async () => {
     const { username, email, password } = userDetails
@@ -26,8 +25,6 @@ function Auth({ register }) {
     }
     else {
       const result = await registerApi(userDetails)
-
-      // console.log(result);
       if (result.status == 200) {
         toast.success('Registration successfully')
         setLoginResponse(true)
@@ -54,7 +51,6 @@ function Auth({ register }) {
     }
     else {
       const result = await loginApi({ email, password })
-      // console.log(result);
       if (result.status == 200) {
         toast.success('Login successfull')
 
@@ -112,14 +108,14 @@ function Auth({ register }) {
               <input type="password" placeholder='Password' className='form-control mt-3' value={userDetails.password} onChange={(e) => setUserDetails({ ...userDetails, password: e.target.value })} />
             </div>
             {!register ? <div className='w-75 mt-2'>
-              <button className='btn btn-warning mt-3 w-100' onClick={handleLogin}>Login</button>
+              <button className='btn btn-warning w-100' onClick={handleLogin}>Login</button>
               <p className='mt-2'>New User? click Here to <Link to={'/register'} className='text-warning rounded-0'>Register</Link></p>
-            </div>
+              </div>
               :
               <div className='w-75 mt-2'>
-                <button className='btn btn-warning mt-3 w-100' onClick={handleRegister}>Register</button>
-                <p className='mt-2'>Already a User? click Here to <Link to={'/login'} className='text-warning rounded-0'>Login</Link></p>
-              </div>}
+                <button className='btn btn-warning w-100' onClick={handleRegister}>Register</button>
+                <p className='mt-2'>New User? click Here to <Link to={'/login'} className='text-warning rounded-0'>Login</Link></p>
+                </div>}
           </div>
         </div>
       </div>
